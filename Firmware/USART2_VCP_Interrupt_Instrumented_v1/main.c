@@ -64,15 +64,15 @@ void USART2_IRQHandler(void)
 
     uint32_t received_data;
 
-    if ((USART2_ISR & (1UL << RXNE_BIT)) != 0)      		/* Data received and ready to be read */
+    if ((USART2_ISR & (1UL << RXNE_BIT)) != 0)        /* Data received and ready to be read */
     {
-        received_data = USART2_RDR;                                  /* Read data from the RDR */
+        received_data = USART2_RDR;                               /* Read data from the RDR */
 
         /* added instrumentation returns SysTick’s tick_count when requested by test script */
 
-        if (received_data == QUERY_BYTE)                             /* request from test script */
+        if (received_data == QUERY_BYTE)                        /* request from test script */
         {
-            uint8_t t0 =  tick_count        & 0xFF;     		/* LSB — sent first */
+            uint8_t t0 =  tick_count        & 0xFF;     /* LSB — sent first */
             uint8_t t1 = (tick_count >> 8)  & 0xFF;
             uint8_t t2 = (tick_count >> 16) & 0xFF;
             uint8_t t3 = (tick_count >> 24) & 0xFF;		/* MSB — sent last */
@@ -104,11 +104,11 @@ void USART2_IRQHandler(void)
         }
         else    /* handle the normal echo of byte received */
         {
-        	while ((USART2_ISR & (1UL << TXE_BIT)) == 0)	      	  /* Transmit register is full */
+        	while ((USART2_ISR & (1UL << TXE_BIT)) == 0)	   /* Transmit register is full */
         	{
         	  /* wait for TDR to empty and be ready to receive data */
         	}
-        	USART2_TDR = received_data;				  /* Write receieved_data into the TDR */
+        	USART2_TDR = received_data;				   /* Write receieved_data into the TDR */
         }
     }
     /* note end of interrupt time by reading CVR countdown value again */
