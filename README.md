@@ -10,7 +10,7 @@ This firmware is tested with a Python script that confirms basic functionality a
 ## HIL Test Results:
 
 Polling:
-
+```
 (venv) r-marcoux@xps13:~/Programming/Python_Testing/USART2$ pytest -v -s test_usart2_CPU_utilization_v1.py
 ==================================================== test session starts =====================================================
 platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- /home/r-marcoux/Programming/Python_Testing/venv/bin/python3
@@ -26,10 +26,10 @@ test_usart2_CPU_utilization_v1.py::test_percent_utilization Elapsed: 42ms, Busy:
 PASSED
 
 ===================================================== 4 passed in 2.11s ======================================================
-
+```
 
 Interrupt-Driven:
-
+```
 (venv) r-marcoux@xps13:~/Programming/Python_Testing/USART2$ pytest -v -s test_usart2_CPU_utilization_v1.py
 ==================================================== test session starts =====================================================
 platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- /home/r-marcoux/Programming/Python_Testing/venv/bin/python3
@@ -45,7 +45,7 @@ test_usart2_CPU_utilization_v1.py::test_percent_utilization Elapsed: 35ms, Busy:
 PASSED
 
 ===================================================== 4 passed in 2.11s ======================================================
-
+```
 
 ## Project Intent
 
