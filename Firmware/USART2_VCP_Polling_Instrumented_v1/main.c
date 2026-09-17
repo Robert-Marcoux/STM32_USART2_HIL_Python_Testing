@@ -135,12 +135,12 @@ int main(void)
 
 	for (;;)
 	{
-		if ((USART2_ISR & (1UL << RXNE_BIT)) != 0)			/* Data received and ready to be read */
+		if ((USART2_ISR & (1UL << RXNE_BIT)) != 0)		  /* Data received and ready to be read */
 		{
-			received_data = USART2_RDR;                      		/* Read data from the RDR */
+			received_data = USART2_RDR;                        		  /* Read data from the RDR */
 
             /* added instrumentation returns SysTick’s tick_count when requested by test script */
-			if (received_data == QUERY_BYTE)             		/* request from test script */
+			if (received_data == QUERY_BYTE)               		    /* request from test script */
 			{
 	    			uint8_t t0 =  tick_count        & 0xFF;   	/* LSB — sent first */
 	    			uint8_t t1 = (tick_count >> 8)  & 0xFF;
