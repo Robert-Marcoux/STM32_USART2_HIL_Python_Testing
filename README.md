@@ -97,7 +97,7 @@ For this case, the raw clock cycles consumed within the interrupt handler can be
 ## Running the Tests
 
 Ensure the target firmware is flashed and running standalone (not attached to an active debug session, which will hold the serial port).
-
+```
     cd Python_Tests
     python3 -m venv venv
     source venv/bin/activate
@@ -107,6 +107,7 @@ Instrumented Firmware Tests:
     pytest -v -s test_usart2_CPU_utilization_v1.py
 
 Non-Instrumented Firmware Tests (USART2_VCP_Polling_v1 and USART2_VCP_Interrupt_v1):
-    pytest -v -s test_usart2_CPU_utilization_v1.py -k "echo"	
+    pytest -v -s test_usart2_CPU_utilization_v1.py -k "echo"
+```
 
 The '-k "echo"' option is needed for non-instrumented firmware because they were not meant to implement the timing query protocol.
