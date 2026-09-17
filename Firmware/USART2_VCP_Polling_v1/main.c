@@ -108,14 +108,14 @@ int main(void)
 
 	for (;;)
 	{
-		if ((USART2_ISR & (1UL << RXNE_BIT)) != 0)			/* Data received and ready to be read */
+		if ((USART2_ISR & (1UL << RXNE_BIT)) != 0)		/* Data received and ready to be read */
 		{
-			received_data = USART2_RDR;                                /* Read data from the RDR */
-			while ((USART2_ISR & (1UL << TXE_BIT)) == 0)		/* Transmit register is full */
+			received_data = USART2_RDR;                             /* Read data from the RDR */
+			while ((USART2_ISR & (1UL << TXE_BIT)) == 0)		 /* Transmit register is full */
 			{
 			  /* wait for TDR to empty and be ready to receive data */
 			}
-				USART2_TDR = received_data; 			/* Write receieved_data into the TDR */
+				USART2_TDR = received_data; 			 /* Write receieved_data into the TDR */
 		}
 	}
 }
